@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Клікабельний прототип кабінету БухСенс." />
+    <title>БухСенс — прототип кабінету</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="prototype.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <a class="logo" href="index.html"><span class="logo-mark">Б</span><span>Бух<span>Сенс</span></span></a>
+        <p class="workspace-label">МОЯ РОБОЧА ОБЛАСТЬ</p>
+        <nav class="app-nav" aria-label="Навігація прототипу">
+          <button class="nav-item active" data-view="overview">Огляд</button>
+          <button class="nav-item" data-view="clients">Клієнти <b id="client-count">4</b></button>
+          <button class="nav-item" data-view="requests">Запити документів <b id="request-count">4</b></button>
+        </nav>
+        <div class="sidebar-tip"><span>✦</span><p><strong>Прототип БухСенсу</strong>Натискай на запити, щоб змінювати їхній статус.</p></div>
+      </aside>
+
+      <section class="app-content">
+        <header class="app-header"><div><p class="date">ЧЕТВЕР, 24 ЛИПНЯ</p><h1 id="page-title">Доброго дня, Олено</h1></div><a class="back-link" href="index.html">← На лендинг</a></header>
+
+        <section id="overview" class="view active-view">
+          <div class="readiness"><div><p class="section-label">ГОТОВНІСТЬ ДО НАЙБЛИЖЧОГО ДЕДЛАЙНУ</p><h2>Звіт за липень</h2><p>До 9 серпня залишилося <strong>16 днів</strong></p></div><div class="readiness-ring"><strong id="readiness-percent">50%</strong><span>клієнтів готові</span></div></div>
+          <div class="stat-grid"><article><span class="stat-icon coral">!</span><p>Потребують уваги</p><strong id="attention-count">2</strong><small>клієнти</small></article><article><span class="stat-icon yellow">◷</span><p>Чекаємо документи</p><strong id="waiting-count">3</strong><small>запити</small></article><article><span class="stat-icon green">✓</span><p>Готові до звіту</p><strong id="ready-count">2</strong><small>клієнти</small></article></div>
+          <div class="content-grid"><section class="panel"><div class="panel-heading"><div><p class="section-label">ПРІОРИТЕТ</p><h3>Що потребує уваги</h3></div><button class="text-button" data-view="requests">Усі запити →</button></div><div id="priority-list" class="priority-list"></div></section><section class="panel activity"><div class="panel-heading"><div><p class="section-label">СЬОГОДНІ</p><h3>Недавня активність</h3></div></div><div class="activity-item"><i class="dot green-dot"></i><p><strong>ФОП Коваль</strong> надіслав виписку за липень<br /><span>10 хв тому</span></p></div><div class="activity-item"><i class="dot coral-dot"></i><p>Нагадування надіслано <strong>ТОВ «Маяк»</strong><br /><span>сьогодні, 09:00</span></p></div><div class="activity-item"><i class="dot yellow-dot"></i><p>До дедлайну ФОП Петренко — <strong>3 дні</strong><br /><span>вчора</span></p></div></section></div>
+        </section>
+
+        <section id="clients" class="view"><div class="view-heading"><div><p class="section-label">КЛІЄНТИ</p><h2>Стан підготовки</h2></div><input id="client-search" type="search" placeholder="Пошук клієнта" aria-label="Пошук клієнта" /></div><div id="client-list" class="client-list"></div></section>
+
+        <section id="requests" class="view"><div class="view-heading"><div><p class="section-label">ЗАПИТИ ДОКУМЕНТІВ</p><h2>Контроль надходжень</h2></div><button id="new-request" class="primary-button">+ Створити запит</button></div><p class="view-description">Відміть документ отриманим — стан готовності клієнта оновиться автоматично.</p><div id="request-list" class="request-list"></div></section>
+      </section>
+    </main>
+
+    <dialog id="request-dialog"><form id="request-form" method="dialog"><button class="close-button" type="button" id="close-dialog" aria-label="Закрити">×</button><p class="section-label">НОВИЙ ЗАПИТ</p><h2>Який документ потрібен?</h2><label>Клієнт<select id="new-client" required></select></label><label>Документ<input id="new-document" required placeholder="Наприклад, акт за липень" /></label><label>Дедлайн<input id="new-deadline" type="date" required /></label><button class="primary-button" type="submit">Створити запит</button></form></dialog>
+    <script src="prototype.js"></script>
+  </body>
+</html>
